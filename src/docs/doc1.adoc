@@ -1,0 +1,10 @@
+﻿= Doc 1
+Paulo Jerônimo <pj@paulojeronimo.com>
+ifndef::imagesdir[:imagesdir: images]
+
+== Header 1
+
+=== SubHeader 2
+
+.A sample image
+image::sunset.jpg[scaledwidth=75%]

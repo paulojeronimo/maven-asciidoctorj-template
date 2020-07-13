@@ -1,0 +1,63 @@
+= Template para documentos (escritos em AsciiDoc e gerados com o Maven)
+
+// URIs
+:uri-asciidoc-e-asciidoctor: https://paulojeronimo.github.io/asciidoc-e-asciidoctor/
+
+// Atributos
+:Maven: https://maven.apache.org/[Maven^]
+:AsciidoctorJ: https://github.com/asciidoctor/asciidoctorj[AsciidoctorJ^]
+:AsciidoctorMavenPlugin: https://github.com/asciidoctor/asciidoctor-maven-plugin[Asciidoctor Maven Plugin^]
+:doc1: doc1
+:doc1-html: link:target/docs/html/{doc1}.html[html]
+:doc1-pdf: link:target/docs/pdf/{doc1}.pdf[pdf]
+
+Este é um template simples para a criação de documentos
+utilizando o {Maven} e o {AsciiDoctorJ}.
+
+== Utilização
+
+Os documentos neste repositório são escritos no
+{uri-asciidoc-e-asciidoctor}[formato AsciiDoc^] e gerados,
+para a apresentação final, nos formatos HTML e PDF.
+A geração dos docs nesses últimos formatos é realizada pelo {Maven},
+utilizando o {AsciidoctorJ} e o {AsciidoctorMavenPlugin},
+ao invocar a `goal` `process-resources` (que está configurada para
+ser a `default goal` no link:pom.xml[]:
+
+ $ mvn
+
+Após a execução do comando acima, os documentos
+({doc1}.[{doc1-html}|{doc1-pdf}]) estarão disponíveis no
+diretório _target/docs/_, na seguinte estrutura de diretórios:
+
+----
+$ tree target/
+target/
+`-- docs
+    |-- html
+    |   |-- asciidoctor.css
+    |   |-- doc1.html
+    |   `-- images
+    |       `-- sunset.jpg
+    `-- pdf
+        `-- doc1.pdf
+
+4 directories, 4 files
+----
+
+Observe o padrão de escrita do doc1.adoc e a sua organização,
+na seguinte árvore:
+
+----
+$ tree src/
+src/
+|-- docs
+|   |-- doc1.adoc
+|   `-- images
+|       `-- sunset.jpg
+`-- pdf-styles
+    |-- doc1-theme.yml
+    `-- logo.png
+
+3 directories, 4 files
+----
